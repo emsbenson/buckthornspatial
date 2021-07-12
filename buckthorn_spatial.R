@@ -143,6 +143,27 @@ plotRGB(m0707b, r = 3, g = 2, b = 1, scale = 0.5, stretch = "lin")
 ndvi0707b <- (m0707b[[5]] - m0707b[[3]]) / (m0707b[[5]] + m0707b[[3]])
 plot(ndvi0707b)
 
+
+m0712b1 <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_12_21_buckthorn/07_07_21_buckthorn_transparent_reflectance_blue.tif",
+                "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_12_21_buckthorn/07_07_21_buckthorn_transparent_reflectance_green.tif",
+                "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_12_21_buckthorn/07_07_21_buckthorn_transparent_reflectance_red.tif",
+                "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_12_21_buckthorn/07_07_21_buckthorn_transparent_reflectance_red edge.tif",
+                "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_12_21_buckthorn/07_07_21_buckthorn_transparent_reflectance_nir.tif")
+
+plotRGB(m0707b, r = 3, g = 2, b = 1, scale = 0.5, stretch = "lin")
+ndvi0707b <- (m0707b[[5]] - m0707b[[3]]) / (m0707b[[5]] + m0707b[[3]])
+plot(ndvi0707b)
+
+
+m0707b <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_12_21_buckthorn_p2/07_12_21_buckthorn_p2_transparent_reflectance_blue.tif",
+                "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_12_21_buckthorn_p2/07_12_21_buckthorn__p2_transparent_reflectance_green.tif",
+                "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_12_21_buckthorn_p2/07_12_21_buckthorn_transparent_reflectance_red.tif",
+                "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_12_21_buckthorn_p2/07_12_21_buckthorn_transparent_reflectance_red edge.tif",
+                "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_12_21_buckthorn_p2/07_12_21_buckthorn_transparent_reflectance_nir.tif")
+
+plotRGB(m0707b, r = 3, g = 2, b = 1, scale = 0.5, stretch = "lin")
+ndvi0707b <- (m0707b[[5]] - m0707b[[3]]) / (m0707b[[5]] + m0707b[[3]])
+plot(ndvi0707b)
 #adding gps coordinates to maps
 #read data for longitude and latitude
 sensort <- read.csv("K:/Environmental_Studies/hkropp/Data/campus/buckthorn/sapflux/sapfluxinfo070921.csv")
@@ -268,3 +289,27 @@ viewRGB(m0625r, r = 3, g = 2, b = 1)
 rf0625 <- extract(ndvi0625r, reforestbox)[[1]]
 hist(rf0625)
 mean(rf0625)
+
+sensorcoor <- st_coordinates(sensorInfo[c(1,14), ])
+
+sensorcoor[1,2] + (sin(71*(pi / 180)) * 11.7)
+
+sensorcoor[1,1] - (cos(71*(pi / 180)) * 11.7)
+
+sensor7.9 <- data.frame(sensorID=7, 
+                        x = sensorcoor[1,1] - (cos(71*(pi / 180)) * 11.7),
+                        y = sensorcoor[1,2] + (sin(71*(pi / 180)) * 11.7))
+
+sensor5 <- data.frame(sensorID=5, 
+                        x = sensorcoor[2,1] + (cos(8*(pi / 180)) * 13.8),
+                        y = sensorcoor[2,2] + (sin(8*(pi / 180)) * 13.8))
+
+sensor3.4 <- data.frame(sensorID=3, 
+                      x = sensorcoor[1,1] - (cos(81*(pi / 180)) * 10.5),
+                      y = sensorcoor[1,2] + (sin(81*(pi / 180)) * 10.5))
+
+sensorcombined <- st_as_sf(rbind(sensor7.9, sensor5, sensor3.4), coords = c("x", "y"), crs = 32618)
+
+plotRGB(m0503RGBc, r = 3, g = 2, b = 1)
+plot(sensorInfo$geometry[c(1,14)], add = TRUE, pch = 19, col = "red")
+plot(sensorcombined$geometry, add = TRUE, pch = 19)
