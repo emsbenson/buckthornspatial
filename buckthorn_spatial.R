@@ -471,7 +471,7 @@ meanctr0712b2dat <- data.frame(meanctr0712b2)
 meanrm0712b2dat <- data.frame(meanrm0712b2)
 
 #combining all means to a single table
-meanrmctrdat <- (rbind(meanctr0503b, meanrm0503b, meanctr0519b, meanrm0519b,meanctr0607b, meanrm0607b,
+meanrmctrDat <- (rbind(meanctr0503b, meanrm0503b, meanctr0519b, meanrm0519b,meanctr0607b, meanrm0607b,
                       meanctr0610b, meanrm0610b, meanctr0618b1, meanrm0618b1, meanctr0618b2, meanrm0618b2,
                       meanctr0625b1, meanrm0625b1, meanctr0625b2, meanrm0625b2, meanctr0701b1, meanrm0701b1,
                       meanctr0707b, meanrm0707b, meanctr0712b2, meanrm0712b2, meanctr0712b1, meanrm0712b1))
