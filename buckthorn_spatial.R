@@ -117,8 +117,6 @@ m0701b1 <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/0
                  "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_01_21_buckthorn_p1/flight_07_01_21_buckthorn_p1_transparent_reflectance_nir.tif")
 
 plotRGB(m0701b1, r = 3, g = 2, b = 1, scale = 0.5, stretch = "lin")
-
-
 ndvi0701b1 <- (m0701b1[[5]] - m0701b1[[3]]) / (m0701b1[[5]] + m0701b1[[3]])
 plot(ndvi0701b1)
 
@@ -144,26 +142,26 @@ ndvi0707b <- (m0707b[[5]] - m0707b[[3]]) / (m0707b[[5]] + m0707b[[3]])
 plot(ndvi0707b)
 
 
-m0712b1 <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_12_21_buckthorn/07_07_21_buckthorn_transparent_reflectance_blue.tif",
-                "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_12_21_buckthorn/07_07_21_buckthorn_transparent_reflectance_green.tif",
-                "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_12_21_buckthorn/07_07_21_buckthorn_transparent_reflectance_red.tif",
-                "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_12_21_buckthorn/07_07_21_buckthorn_transparent_reflectance_red edge.tif",
-                "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_12_21_buckthorn/07_07_21_buckthorn_transparent_reflectance_nir.tif")
+m0712b1 <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_12_21_buckthorn_p1/07_12_21_buckthorn_p1_transparent_reflectance_blue.tif",
+                "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_12_21_buckthorn_p1/07_12_21_buckthorn_p1_transparent_reflectance_green.tif",
+                "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_12_21_buckthorn_p1/07_12_21_buckthorn_p1_transparent_reflectance_red.tif",
+                "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_12_21_buckthorn_p1/07_12_21_buckthorn_p1_transparent_reflectance_red edge.tif",
+                "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_12_21_buckthorn_p1/07_12_21_buckthorn_p1_transparent_reflectance_nir.tif")
 
-plotRGB(m0707b, r = 3, g = 2, b = 1, scale = 0.5, stretch = "lin")
-ndvi0707b <- (m0707b[[5]] - m0707b[[3]]) / (m0707b[[5]] + m0707b[[3]])
-plot(ndvi0707b)
+plotRGB(m0712b1, r = 3, g = 2, b = 1, scale = 0.5, stretch = "lin")
+ndvi0712b1 <- (m0712b1[[5]] - m0712b1[[3]]) / (m0712b1[[5]] + m0712b1[[3]])
+plot(ndvi0712b1)
 
 
-m0707b <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_12_21_buckthorn_p2/07_12_21_buckthorn_p2_transparent_reflectance_blue.tif",
-                "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_12_21_buckthorn_p2/07_12_21_buckthorn__p2_transparent_reflectance_green.tif",
-                "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_12_21_buckthorn_p2/07_12_21_buckthorn_transparent_reflectance_red.tif",
-                "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_12_21_buckthorn_p2/07_12_21_buckthorn_transparent_reflectance_red edge.tif",
-                "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_12_21_buckthorn_p2/07_12_21_buckthorn_transparent_reflectance_nir.tif")
+m0712b2 <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_12_21_buckthorn_p2/07_12_21_buckthorn_p2_transparent_reflectance_blue.tif",
+                "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_12_21_buckthorn_p2/07_12_21_buckthorn_p2_transparent_reflectance_green.tif",
+                "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_12_21_buckthorn_p2/07_12_21_buckthorn_p2_transparent_reflectance_red.tif",
+                "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_12_21_buckthorn_p2/07_12_21_buckthorn_p2_transparent_reflectance_red edge.tif",
+                "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_12_21_buckthorn_p2/07_12_21_buckthorn_p2_transparent_reflectance_nir.tif")
 
-plotRGB(m0707b, r = 3, g = 2, b = 1, scale = 0.5, stretch = "lin")
-ndvi0707b <- (m0707b[[5]] - m0707b[[3]]) / (m0707b[[5]] + m0707b[[3]])
-plot(ndvi0707b)
+plotRGB(m0712b2, r = 3, g = 2, b = 1, scale = 0.5, stretch = "lin")
+ndvi0712b2 <- (m0712b2[[5]] - m0712b2[[3]]) / (m0712b2[[5]] + m0712b2[[3]])
+plot(ndvi0712b2)
 #adding gps coordinates to maps
 #read data for longitude and latitude
 sensort <- read.csv("K:/Environmental_Studies/hkropp/Data/campus/buckthorn/sapflux/sapfluxinfo070921.csv")
@@ -272,16 +270,213 @@ plot(ndvi0707bR - ndvi0503b)
 
 ndvi0618b1R <- resample(ndvi0618b1, ndvi0503b)
 plot(ndvi0618b1R - ndvi0503b)
+
+#resampling where 0712 is the base map for 0707
+ndvi0707bR2 <- resample(ndvi0707b, ndvi0712b1)
+plot(ndvi0707bR2 - ndvi0712b1)
+
+
+#resampling where 0712 is base map for 0701
+ndvi0701b1R2 <- resample(ndvi0701b1, ndvi0712b1)
+plot(ndvi0707bR2 - ndvi0712b1)
+
+
+#resampling where 0712 is base map for 0625
+ndvi0625bR2 <- resample(ndvi0625b1, ndvi0712b1)
+plot(ndvi0625bR2 - ndvi0712b1)
+
+
+#resampling where 0712 is base map for 0618
+ndvi0618bR2 <- resample(ndvi0618b1, ndvi0712b1)
+plot(ndvi0618bR2 - ndvi0712b1)
+
+
+#resampling where 0712 is base map for 0610
+ndvi0610bR2 <- resample(ndvi0610b, ndvi0712b1)
+plot(ndvi0610bR2 - ndvi0712b1)
+
+
+#resampling where 0712 is base map for 0607
+ndvi0607bR2 <- resample(ndvi0607b, ndvi0712b1)
+plot(ndvi0607bR2 - ndvi0712b1)
+
+
+#resampling where 0712 is base map for 0519
+ndvi0519bR2 <- resample(ndvi0519b, ndvi0712b1)
+plot(ndvi0519bR2 - ndvi0712b1)
+
+
+#resampling where 0712 is base map for 0503
+ndvi0503bR2 <- resample(ndvi0503b, ndvi0712b1)
+plot(ndvi0503bR2 - ndvi0712b1)
+
+
+
+
+#ndvi value dist from 0503b
+rm0503b <- extract(ndvi0503b, removalPoly)[[1]]
+meanrm0503b <- mean(rm0503b)
+#ndvi value dist from 0625b2
+ctr0503b <- extract(ndvi0503b, controlPoly)[[1]]
+meanctr0503b <- mean(ctr0503b)
+hist(ctr0503b)
+
+#ndvi value dist from 0519b
+rm0519b <- extract(ndvi0519b, removalPoly)[[1]]
+meanrm0519b <- mean(rm0519b)
+#ndvi value dist from 0519b
+ctr0519b <- extract(ndvi0519b, controlPoly)[[1]]
+meanctr0519b <- mean(ctr0519b)
+
+
+#ndvi value dist from 0607b
+rm0607b <- extract(ndvi0607b, removalPoly)[[1]]
+meanrm0607b <- mean(rm0607b)
+#ndvi value dist from 0607b
+ctr0607b <- extract(ndvi0607b, controlPoly)[[1]]
+meanctr0607b <- mean(ctr0607b)
+
+
+#ndvi value dist from 0610b
+rm0610b <- extract(ndvi0610b, removalPoly)[[1]]
+meanrm0610b <- mean(rm0610b)
+#ndvi value dist from 0625b2
+ctr0610b <- extract(ndvi0610b, controlPoly)[[1]]
+meanctr0610b <- mean(ctr0610b)
+
+
 #histogram for ndvi value distribution from 0618b1 removal
 rm0618b1 <- extract(ndvi0618b1, removalPoly)[[1]]
 hist(rm0618b1)
-mean(rm0618b1)
-#histogram for ndvi value distribution from 0618b control
+meanrm0618b1 <- mean(rm0618b1)
+
+#histogram for ndvi value distribution from 0618b1 control
 ctr0618b1 <- extract(ndvi0618b1, controlPoly)[[1]]
 hist(ctr0618b1)
-mean(ctr0618b1)
+meanctr0618b1 <- mean(ctr0618b1)
+
+
+#histogram for ndvi value distribution from 0618b2 removal
+rm0618b2 <- extract(ndvi0618b2, removalPoly)[[1]]
+
+meanrm0618b2 <- mean(rm0618b2)
+
+#histogram for ndvi value distribution from 0618b2 control
+ctr0618b2 <- extract(ndvi0618b2, controlPoly)[[1]]
+
+meanctr0618b2 <- mean(ctr0618b2)
+
 #histogram of ndvi values for 0625r
 hist(ndvi0625r)
+mean0625r <- mean(ndvi0625r)
+
+
+#ndvi value distribution from 0625b1
+rm0625b1 <- extract(ndvi0625b1, removalPoly)[[1]]
+meanrm0625b1 <- mean(rm0625b1)
+#ndvi value dist from 0625b1
+ctr0625b1 <- extract(ndvi0625b1, controlPoly)[[1]]
+meanctr0625b1 <- mean(ctr0625b1)
+
+
+#ndvi value dist from 0625b2
+rm0625b2 <- extract(ndvi0625b2, removalPoly)[[1]]
+meanrm0625b2 <- mean(rm0625b2)
+#ndvi value dist from 0625b2
+ctr0625b2 <- extract(ndvi0625b2, controlPoly)[[1]]
+meanctr0625b2 <- mean(ctr0625b2)
+
+
+#ndvi value dist from 0701b1
+rm0701b1 <- extract(ndvi0701b1, removalPoly)[[1]]
+meanrm0701b1 <- mean(rm0701b1)
+#ndvi value dist from 0701b1
+ctr0701b1 <- extract(ndvi0701b1, controlPoly)[[1]]
+meanctr0701b1 <- mean(ctr0701b1)
+
+
+#ndvi value dist from 0701b2
+rm0701b2 <- extract(ndvi0701b2, removalPoly)[[1]]
+meanrm0701b2 <- mean(rm0701b2)
+#ndvi value dist from 0625b2
+ctr0701b2 <- extract(ndvi0701b2, controlPoly)[[1]]
+meanctr0701b2 <- mean(ctr0701b2)
+
+
+#ndvi value dist from 0707b
+rm0707b <- extract(ndvi0707b, removalPoly)[[1]]
+meanrm0707b <- mean(rm0707b)
+#ndvi value dist from 0707b
+ctr0707b <- extract(ndvi0707b, controlPoly)[[1]]
+meanctr0707b <- mean(ctr0707b)
+
+
+#ndvi value dist from 0712b1
+rm0712b1 <- extract(ndvi0712b1, removalPoly)[[1]]
+meanrm0712b1 <- mean(rm0712b1)
+#ndvi value dist from 0625b2
+ctr0712b1 <- extract(ndvi0712b1, controlPoly)[[1]]
+meanctr0712b1 <- mean(ctr0712b1)
+
+
+#ndvi value dist from 0712b2
+rm0712b2 <- extract(ndvi0712b2, removalPoly)[[1]]
+meanrm0712b2 <- mean(rm0712b2)
+#ndvi value dist from 0625b2
+ctr0712b2 <- extract(ndvi0712b2, controlPoly)[[1]]
+meanctr0712b2 <- mean(ctr0712b2)
+
+
+#adding removal and control plots to data fame
+
+meanctr0503bdat <- data.frame(meanctr0503b)
+meanrm0503bdat <- data.frame(meanrm0503b)
+
+meanctr0519bdat <- data.frame(meanctr0519b)
+meanrm0519bdat <- data.frame(meanrm0519b)
+
+meanctr0607bdat <- data.frame(meanctr0607b)
+meanrm0607bdat <- data.frame(meanrm0607b)
+
+meanctr0610bdat <- data.frame(meanctr0610b)
+meanrm0610bdat <- data.frame(meanrm0610b)
+
+meanctr0618b1dat <- data.frame(meanctr0618b1)
+meanrm0618b1dat <- data.frame(meanrm0618b1)
+
+meanctr0618b2dat <- data.frame(meanctr0618b2)
+meanrm0618b2dat <- data.frame(meanrm0618b2)
+
+meanctr0625b1dat <- data.frame(meanctr0625b1)
+meanrm0625b1dat <- data.frame(meanrm0625b1)
+
+meanctr0625b2dat <- data.frame(meanctr0625b2)
+meanrm0625b2dat <- data.frame(meanrm0625b2)
+
+#mean0625rdat <- data.frame(mean0625r)
+
+meanctr0701b1dat <- data.frame(meanctr0701b1)
+meanrm0701b1dat <- data.frame(meanrm0701b1)
+
+meanctr0701b2dat <- data.frame(meanctr0701b2)
+meanrm0701b2dat <- data.frame(meanrm0701b2)
+
+meanctr0707bdat <- data.frame(meanctr0707b)
+meanrm0707bdat <- data.frame(meanrm0707b)
+
+meanctr0712b1dat <- data.frame(meanctr0712b1)
+meanrm0712b1dat <- data.frame(meanrm0712b1)
+
+meanctr0712b2dat <- data.frame(meanctr0712b2)
+meanrm0712b2dat <- data.frame(meanrm0712b2)
+
+#combining all means to a single table
+meanrmctrdat <- (rbind(meanctr0503b, meanrm0503b, meanctr0519b, meanrm0519b,meanctr0607b, meanrm0607b,
+                      meanctr0610b, meanrm0610b, meanctr0618b1, meanrm0618b1, meanctr0618b2, meanrm0618b2,
+                      meanctr0625b1, meanrm0625b1, meanctr0625b2, meanrm0625b2, meanctr0701b1, meanrm0701b1,
+                      meanctr0707b, meanrm0707b, meanctr0712b2, meanrm0712b2, meanctr0712b1, meanrm0712b1))
+
+
 #drew rough plot of where trees were planted for reforestation
 #reforestbox <- drawFeatures(
 viewRGB(m0625r, r = 3, g = 2, b = 1)
