@@ -231,6 +231,8 @@ plot(sensorInfo2$geometry, add = TRUE, pch = 19)
 #install.packages(c("mapview", "mapedit"))
 library(mapview)
 library(mapedit)
+
+
 #changes view of map so that the max number of pixels is 5000000
 viewRGB(m0503RGBc, r = 3, g = 2, b = 1)+
   mapview(sensorInfo2)
@@ -265,6 +267,7 @@ viewRGB(m0503RGBc, r = 3, g = 2, b = 1)+
   mapview(removalBox)+
   mapview(sensorInfo)+
   mapview(removalPoly))
+
 
 #st_write(controlPoly, "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/out/control_bounds.shp")
 
