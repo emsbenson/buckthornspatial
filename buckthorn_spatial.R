@@ -13,10 +13,10 @@ m0503b <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/05
                 "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/05_03_21_buckthorn/05_03_21_buckthorn_transparent_reflectance_red edge.tif",
                 "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/05_03_21_buckthorn/05_03_21_buckthorn_transparent_reflectance_nir.tif")
 
-plotRGB(m0503b, r = 3, g = 2, b = 1, scale = 0.5, stretch = "lin")
+#plotRGB(m0503b, r = 3, g = 2, b = 1, scale = 0.5, stretch = "lin")
 
 ndvi0503b <- (m0503b[[5]] - m0503b[[3]] / m0503b[[5]] + m0503b[[3]])
-plot(ndvi0503b)
+#plot(ndvi0503b)
 
 
 m0519b <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/05_19_21_buckthorn/05_19_21_transparent_reflectance_blue.tif",
@@ -25,10 +25,10 @@ m0519b <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/05
                 "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/05_19_21_buckthorn/05_19_21_transparent_reflectance_red edge.tif",
                 "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/05_19_21_buckthorn/05_19_21_transparent_reflectance_nir.tif")
 
-plotRGB(m0519b, r = 3, g = 2, b = 1, scale = 0.5, stretch = "lin")
+#plotRGB(m0519b, r = 3, g = 2, b = 1, scale = 0.5, stretch = "lin")
 
 ndvi0519b <- (m0519b[[5]] - m0519b[[3]] / m0519b[[5]] + m0519b[[3]])
-plot(ndvi0519b)
+#plot(ndvi0519b)
 
 
 
@@ -38,9 +38,9 @@ m0607b <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/06
                 "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/06_07_21_buckthorn/June_7_transparent_reflectance_red edge.tif",
                 "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/06_07_21_buckthorn/June_7_transparent_reflectance_nir.tif")
 
-plotRGB(m0607b, r = 3, g = 2, b = 1, scale = 0.5, stretch = "lin")
+#plotRGB(m0607b, r = 3, g = 2, b = 1, scale = 0.5, stretch = "lin")
 ndvi0607b <- (m0607b[[5]] - m0607b[[3]]) / (m0607b[[5]] + m0607b[[3]])
-plot(ndvi0607b)
+#plot(ndvi0607b)
 
 
 
@@ -50,21 +50,21 @@ m0610b <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/06
                 "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/06_10_21_buckthorn/06_10_transparent_reflectance_red edge.tif",
                 "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/06_10_21_buckthorn/06_10_transparent_reflectance_nir.tif")
 
-plotRGB(m0610b, r = 3, g = 2, b = 1, scale = 0.5, stretch = "lin")
+#plotRGB(m0610b, r = 3, g = 2, b = 1, scale = 0.5, stretch = "lin")
 ndvi0610b <- (m0610b[[5]] - m0610b[[3]]) / (m0610b[[5]] + m0610b[[3]])
-plot(ndvi0610b)
+#plot(ndvi0610b)
 
 
-#rerun 06_18 part 2 in pix4d
+
 m0618b1 <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/06_18_21_buckthorn_p1/06_18_21_buckthorn_p1_rerun_transparent_reflectance_blue.tif",
                  "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/06_18_21_buckthorn_p1/06_18_21_buckthorn_p1_rerun_transparent_reflectance_green.tif",
                  "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/06_18_21_buckthorn_p1/06_18_21_buckthorn_p1_rerun_transparent_reflectance_red.tif",
                  "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/06_18_21_buckthorn_p1/06_18_21_buckthorn_p1_rerun_transparent_reflectance_red edge.tif",
                  "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/06_18_21_buckthorn_p1/06_18_21_buckthorn_p1_rerun_transparent_reflectance_nir.tif")
 
-plotRGB(m0618b1, r = 3, g = 2, b = 1, scale = 0.5, stretch = "lin")
+#plotRGB(m0618b1, r = 3, g = 2, b = 1, scale = 0.5, stretch = "lin")
 ndvi0618b1 <- (m0618b1[[5]] - m0618b1[[3]]) / (m0618b1[[5]] + m0618b1[[3]])
-plot(ndvi0618b1)
+#plot(ndvi0618b1)
 
 m0618b2 <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/06_18_21_buckthorn_p2/06_18_21_buckthorn_p2_rerun_transparent_reflectance_blue.tif",
                  "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/06_18_21_buckthorn_p2/06_18_21_buckthorn_p2_rerun_transparent_reflectance_green.tif",
@@ -72,9 +72,9 @@ m0618b2 <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/0
                  "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/06_18_21_buckthorn_p2/06_18_21_buckthorn_p2_rerun_transparent_reflectance_red edge.tif",
                  "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/06_18_21_buckthorn_p2/06_18_21_buckthorn_p2_rerun_transparent_reflectance_nir.tif")
 
-plotRGB(m0618b2, r = 3, g = 2, b = 1, scale = 0.5, stretch = "lin")
+#plotRGB(m0618b2, r = 3, g = 2, b = 1, scale = 0.5, stretch = "lin")
 ndvi0618b2 <- (m0618b2[[5]] - m0618b2[[3]]) / (m0618b2[[5]] + m0618b2[[3]])
-plot(ndvi0618b2)
+#plot(ndvi0618b2)
 
 
 
@@ -84,9 +84,9 @@ m0625b1 <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/0
                  "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/06_25_21_buckthorn_p1/6_25_21_buckthorn_part1_transparent_reflectance_red.tif",
                  "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/06_25_21_buckthorn_p1/6_25_21_buckthorn_part1_transparent_reflectance_red edge.tif",
                  "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/06_25_21_buckthorn_p1/6_25_21_buckthorn_part1_transparent_reflectance_nir.tif")
-plotRGB(m0625b1, r = 3, g = 2, b = 1, scale = 0.5, stretch = "lin")
+#plotRGB(m0625b1, r = 3, g = 2, b = 1, scale = 0.5, stretch = "lin")
 ndvi0625b1 <- (m0625b1[[5]] - m0625b1[[3]]) / (m0625b1[[5]] + m0625b1[[3]])
-plot(ndvi0625b1)
+#plot(ndvi0625b1)
 
 
 m0625b2 <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/06_25_21_buckthorn_p2/6_25_21_buckthorn_part2_transparent_reflectance_blue.tif",
@@ -95,9 +95,9 @@ m0625b2 <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/0
                  "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/06_25_21_buckthorn_p2/6_25_21_buckthorn_part2_transparent_reflectance_red edge.tif",
                  "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/06_25_21_buckthorn_p2/6_25_21_buckthorn_part2_transparent_reflectance_nir.tif")
 
-plotRGB(m0625b2, r = 3, g = 2, b = 1, scale = 0.5, stretch = "lin")
+#plotRGB(m0625b2, r = 3, g = 2, b = 1, scale = 0.5, stretch = "lin")
 ndvi0625b2 <- (m0625b2[[5]] - m0625b2[[3]]) / (m0625b2[[5]] + m0625b2[[3]])
-plot(ndvi0625b2)
+#plot(ndvi0625b2)
 
 
 m0625r <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/06_25_21_reforestation/6_25_21_reforestation_p2_transparent_reflectance_blue.tif",
@@ -105,9 +105,9 @@ m0625r <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/06
                 "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/06_25_21_reforestation/6_25_21_reforestation_p2_transparent_reflectance_red.tif",
                 "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/06_25_21_reforestation/6_25_21_reforestation_p2_transparent_reflectance_red edge.tif",
                 "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/06_25_21_reforestation/6_25_21_reforestation_p2_transparent_reflectance_nir.tif")
-plotRGB(m0625r, r = 3, g = 2, b = 1, scale = 0.5, stretch = "lin")
+#plotRGB(m0625r, r = 3, g = 2, b = 1, scale = 0.5, stretch = "lin")
 ndvi0625r <- (m0625r[[5]] - m0625r[[3]]) / (m0625r[[5]] + m0625r[[3]])
-plot(ndvi0625r)
+#plot(ndvi0625r)
 
 
 m0701b1 <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_01_21_buckthorn_p1/flight_07_01_21_buckthorn_p1_transparent_reflectance_blue.tif",
@@ -116,9 +116,9 @@ m0701b1 <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/0
                  "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_01_21_buckthorn_p1/flight_07_01_21_buckthorn_p1_transparent_reflectance_red edge.tif",
                  "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_01_21_buckthorn_p1/flight_07_01_21_buckthorn_p1_transparent_reflectance_nir.tif")
 
-plotRGB(m0701b1, r = 3, g = 2, b = 1, scale = 0.5, stretch = "lin")
+#plotRGB(m0701b1, r = 3, g = 2, b = 1, scale = 0.5, stretch = "lin")
 ndvi0701b1 <- (m0701b1[[5]] - m0701b1[[3]]) / (m0701b1[[5]] + m0701b1[[3]])
-plot(ndvi0701b1)
+#plot(ndvi0701b1)
 
 
 m0701b2 <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_01_21_buckthorn_p2/07_01_21_buckthorn_p2_transparent_reflectance_blue.tif",
@@ -127,9 +127,9 @@ m0701b2 <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/0
                  "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_01_21_buckthorn_p2/07_01_21_buckthorn_p2_transparent_reflectance_red edge.tif",
                  "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_01_21_buckthorn_p2/07_01_21_buckthorn_p2_transparent_reflectance_nir.tif")
 
-plotRGB(m0701b2, r = 3, g = 2, b = 1, scale = 0.5, stretch = "lin")
+#plotRGB(m0701b2, r = 3, g = 2, b = 1, scale = 0.5, stretch = "lin")
 ndvi0701b2 <- (m0701b2[[5]] - m0701b2[[3]]) / (m0701b2[[5]] + m0701b2[[3]])
-plot(ndvi0701b2)
+#plot(ndvi0701b2)
 
 m0707b <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_07_21_buckthorn/07_07_21_buckthorn_transparent_reflectance_blue.tif",
                 "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_07_21_buckthorn/07_07_21_buckthorn_transparent_reflectance_green.tif",
@@ -137,9 +137,9 @@ m0707b <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07
                 "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_07_21_buckthorn/07_07_21_buckthorn_transparent_reflectance_red edge.tif",
                 "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_07_21_buckthorn/07_07_21_buckthorn_transparent_reflectance_nir.tif")
 
-plotRGB(m0707b, r = 3, g = 2, b = 1, scale = 0.5, stretch = "lin")
+#plotRGB(m0707b, r = 3, g = 2, b = 1, scale = 0.5, stretch = "lin")
 ndvi0707b <- (m0707b[[5]] - m0707b[[3]]) / (m0707b[[5]] + m0707b[[3]])
-plot(ndvi0707b)
+#plot(ndvi0707b)
 
 
 m0712b1 <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_12_21_buckthorn_p1/07_12_21_buckthorn_p1_transparent_reflectance_blue.tif",
@@ -148,9 +148,9 @@ m0712b1 <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/0
                 "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_12_21_buckthorn_p1/07_12_21_buckthorn_p1_transparent_reflectance_red edge.tif",
                 "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_12_21_buckthorn_p1/07_12_21_buckthorn_p1_transparent_reflectance_nir.tif")
 
-plotRGB(m0712b1, r = 3, g = 2, b = 1, scale = 0.5, stretch = "lin")
+#plotRGB(m0712b1, r = 3, g = 2, b = 1, scale = 0.5, stretch = "lin")
 ndvi0712b1 <- (m0712b1[[5]] - m0712b1[[3]]) / (m0712b1[[5]] + m0712b1[[3]])
-plot(ndvi0712b1)
+#plot(ndvi0712b1)
 
 
 m0712b2 <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_12_21_buckthorn_p2/07_12_21_buckthorn_p2_transparent_reflectance_blue.tif",
@@ -159,9 +159,33 @@ m0712b2 <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/0
                 "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_12_21_buckthorn_p2/07_12_21_buckthorn_p2_transparent_reflectance_red edge.tif",
                 "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_12_21_buckthorn_p2/07_12_21_buckthorn_p2_transparent_reflectance_nir.tif")
 
-plotRGB(m0712b2, r = 3, g = 2, b = 1, scale = 0.5, stretch = "lin")
+#plotRGB(m0712b2, r = 3, g = 2, b = 1, scale = 0.5, stretch = "lin")
 ndvi0712b2 <- (m0712b2[[5]] - m0712b2[[3]]) / (m0712b2[[5]] + m0712b2[[3]])
-plot(ndvi0712b2)
+#plot(ndvi0712b2)
+
+
+m0715rb <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_15_21_rogers_buckthorn/07_15_21_rogers_buckthorn_transparent_reflectance_blue.tif",
+                 "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_15_21_rogers_buckthorn/07_15_21_rogers_buckthorn_transparent_reflectance_green.tif",
+                 "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_15_21_rogers_buckthorn/07_15_21_rogers_buckthorn_transparent_reflectance_red.tif",
+                 "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_15_21_rogers_buckthorn/07_15_21_rogers_buckthorn_transparent_reflectance_red edge.tif",
+                 "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_15_21_rogers_buckthorn/07_15_21_rogers_buckthorn_transparent_reflectance_nir.tif")
+
+plotRGB(m0715rb, r = 3, g = 2, b = 1, scale = 0.5, stretch = "lin")
+ndvi0715rb <- (m0715rb[[5]] - m0715rb[[3]]) / (m0715rb[[5]] + m0715rb[[3]])
+plot(ndvi0715rb)
+
+
+m0715rg <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_15_21_rogers_glen/07_15_21_rogers_glen_transparent_reflectance_blue.tif",
+                 "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_15_21_rogers_glen/07_15_21_rogers_glen_transparent_reflectance_green.tif",
+                 "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_15_21_rogers_glen/07_15_21_rogers_glen_transparent_reflectance_red.tif",
+                 "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_15_21_rogers_glen/07_15_21_rogers_glen_transparent_reflectance_red edge.tif",
+                 "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_15_21_rogers_glen/07_15_21_rogers_glen_transparent_reflectance_nir.tif")
+
+plotRGB(m0715rg, r = 3, g = 2, b = 1, scale = 0.5, stretch = "lin")
+ndvi0715rg <- (m0715rg[[5]] - m0715rg[[3]]) / (m0715rg[[5]] + m0715rg[[3]])
+plot(ndvi0715rg)
+
+
 #adding gps coordinates to maps
 #read data for longitude and latitude
 sensort <- read.csv("K:/Environmental_Studies/hkropp/Data/campus/buckthorn/sapflux/sapfluxinfo070921.csv")
@@ -241,7 +265,10 @@ viewRGB(m0503RGBc, r = 3, g = 2, b = 1)+
   mapview(removalBox)+
   mapview(sensorInfo)+
   mapview(removalPoly))
+
 #st_write(controlPoly, "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/out/control_bounds.shp")
+
+
 #transformed removalPoly and controlPoly so that they are in wgs 84 utm zone 18N
 removalPoly <- st_transform(st_read("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/out/removal_bounds.shp"), 32618)
 controlPoly <- st_transform(st_read("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/out/control_bounds.shp"), 32618)
@@ -250,10 +277,11 @@ controlPoly <- st_transform(st_read("K:/Environmental_Studies/hkropp/GIS/drone/c
 
 #histogram of ndvi value distribution for 0707b in removal
 rm0707b <- extract(ndvi0707b, removalPoly)[[1]]
-hist(rm0707b)
+#hist(rm0707b)
+
 #histogram of ndvi value distribution for 0707b in control
 ctr0707b <- extract(ndvi0707b, controlPoly)[[1]]
-hist(ctr0707b)
+#hist(ctr0707b)
 #mean ndvi value for control and removal in 0707b
 mean(rm0707b)
 mean(ctr0707b)
@@ -319,7 +347,7 @@ meanrm0503b <- mean(rm0503b)
 #ndvi value dist from 0625b2
 ctr0503b <- extract(ndvi0503b, controlPoly)[[1]]
 meanctr0503b <- mean(ctr0503b)
-hist(ctr0503b)
+#hist(ctr0503b)
 
 #ndvi value dist from 0519b
 rm0519b <- extract(ndvi0519b, removalPoly)[[1]]
@@ -340,34 +368,31 @@ meanctr0607b <- mean(ctr0607b)
 #ndvi value dist from 0610b
 rm0610b <- extract(ndvi0610b, removalPoly)[[1]]
 meanrm0610b <- mean(rm0610b)
+
+
 #ndvi value dist from 0625b2
 ctr0610b <- extract(ndvi0610b, controlPoly)[[1]]
 meanctr0610b <- mean(ctr0610b)
 
 
-#histogram for ndvi value distribution from 0618b1 removal
+#ndvi value distribution from 0618b1 removal
 rm0618b1 <- extract(ndvi0618b1, removalPoly)[[1]]
-hist(rm0618b1)
 meanrm0618b1 <- mean(rm0618b1)
 
-#histogram for ndvi value distribution from 0618b1 control
+#ndvi value distribution from 0618b1 control
 ctr0618b1 <- extract(ndvi0618b1, controlPoly)[[1]]
-hist(ctr0618b1)
 meanctr0618b1 <- mean(ctr0618b1)
 
 
-#histogram for ndvi value distribution from 0618b2 removal
+#ndvi value distribution from 0618b2 removal
 rm0618b2 <- extract(ndvi0618b2, removalPoly)[[1]]
-
 meanrm0618b2 <- mean(rm0618b2)
 
-#histogram for ndvi value distribution from 0618b2 control
+#ndvi value distribution from 0618b2 control
 ctr0618b2 <- extract(ndvi0618b2, controlPoly)[[1]]
-
 meanctr0618b2 <- mean(ctr0618b2)
 
-#histogram of ndvi values for 0625r
-hist(ndvi0625r)
+#ndvi values for 0625r
 mean0625r <- mean(ndvi0625r)
 
 
@@ -398,7 +423,7 @@ meanctr0701b1 <- mean(ctr0701b1)
 #ndvi value dist from 0701b2
 rm0701b2 <- extract(ndvi0701b2, removalPoly)[[1]]
 meanrm0701b2 <- mean(rm0701b2)
-#ndvi value dist from 0625b2
+#ndvi value dist from 0701b2
 ctr0701b2 <- extract(ndvi0701b2, controlPoly)[[1]]
 meanctr0701b2 <- mean(ctr0701b2)
 
@@ -414,7 +439,7 @@ meanctr0707b <- mean(ctr0707b)
 #ndvi value dist from 0712b1
 rm0712b1 <- extract(ndvi0712b1, removalPoly)[[1]]
 meanrm0712b1 <- mean(rm0712b1)
-#ndvi value dist from 0625b2
+#ndvi value dist from 0712b2
 ctr0712b1 <- extract(ndvi0712b1, controlPoly)[[1]]
 meanctr0712b1 <- mean(ctr0712b1)
 
@@ -422,7 +447,7 @@ meanctr0712b1 <- mean(ctr0712b1)
 #ndvi value dist from 0712b2
 rm0712b2 <- extract(ndvi0712b2, removalPoly)[[1]]
 meanrm0712b2 <- mean(rm0712b2)
-#ndvi value dist from 0625b2
+#ndvi value dist from 0712b2
 ctr0712b2 <- extract(ndvi0712b2, controlPoly)[[1]]
 meanctr0712b2 <- mean(ctr0712b2)
 
@@ -567,7 +592,8 @@ ggplot(mean.table, aes(x = as.factor(date), meanndvi, color = trt))+
 ggplot(mean.table[5:24,], aes(x = as.factor(date), meanndvi, color = trt))+
   geom_point()
 
-#adding removal and control plots to data fame
+#adding removal and control plots to data frame
+#this we didn't actually need :/
 
 meanctr0503bdat <- data.frame(meanctr0503b)
 meanrm0503bdat <- data.frame(meanrm0503b)
