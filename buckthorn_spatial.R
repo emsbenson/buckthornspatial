@@ -170,9 +170,9 @@ m0715rb <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/0
                  "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_15_21_rogers_buckthorn/07_15_21_rogers_buckthorn_transparent_reflectance_red edge.tif",
                  "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_15_21_rogers_buckthorn/07_15_21_rogers_buckthorn_transparent_reflectance_nir.tif")
 
-plotRGB(m0715rb, r = 3, g = 2, b = 1, scale = 0.5, stretch = "lin")
+#plotRGB(m0715rb, r = 3, g = 2, b = 1, scale = 0.5, stretch = "lin")
 ndvi0715rb <- (m0715rb[[5]] - m0715rb[[3]]) / (m0715rb[[5]] + m0715rb[[3]])
-plot(ndvi0715rb)
+#plot(ndvi0715rb)
 
 
 m0715rg <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_15_21_rogers_glen/07_15_21_rogers_glen_transparent_reflectance_blue.tif",
@@ -181,9 +181,9 @@ m0715rg <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/0
                  "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_15_21_rogers_glen/07_15_21_rogers_glen_transparent_reflectance_red edge.tif",
                  "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_15_21_rogers_glen/07_15_21_rogers_glen_transparent_reflectance_nir.tif")
 
-plotRGB(m0715rg, r = 3, g = 2, b = 1, scale = 0.5, stretch = "lin")
+#plotRGB(m0715rg, r = 3, g = 2, b = 1, scale = 0.5, stretch = "lin")
 ndvi0715rg <- (m0715rg[[5]] - m0715rg[[3]]) / (m0715rg[[5]] + m0715rg[[3]])
-plot(ndvi0715rg)
+#plot(ndvi0715rg)
 
 
 #adding gps coordinates to maps
