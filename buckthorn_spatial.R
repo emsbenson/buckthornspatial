@@ -268,15 +268,34 @@ viewRGB(m0503RGBc, r = 3, g = 2, b = 1)+
   mapview(sensorInfo)+
   mapview(removalPoly))
 
-
 #st_write(controlPoly, "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/out/control_bounds.shp")
+
+
+#ashPoly <- drawFeatures(
+  viewRGB(m0503RGBc, r = 3, g = 2, b = 1)+
+    mapview(sensorInfo))
+
+#st_write(ashPoly, "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/out/ash_canopies.shp")
+
+#maplePoly <- drawFeatures(
+  viewRGB(m0503RGBc, r = 3, g = 2, b = 1)+
+    mapview(sensorInfo))
+
+#st_write(maplePoly, "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/out/maple_canopies.shp")
+
+#buckPoly <- drawFeatures(
+  viewRGB(m0503RGBc, r = 3, g = 2, b = 1)+
+    mapview(sensorInfo))
+
+#st_write(buckPoly, "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/out/buck_canopies.shp")
 
 
 #transformed removalPoly and controlPoly so that they are in wgs 84 utm zone 18N
 removalPoly <- st_transform(st_read("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/out/removal_bounds.shp"), 32618)
 controlPoly <- st_transform(st_read("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/out/control_bounds.shp"), 32618)
-
-
+ashPoly <- st_transform(st_read("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/out/ash_canopies.shp"), 32618)
+maplePoly <- st_transform(st_read("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/out/ash_canopies.shp"), 32618)
+buckPoly <- st_transform(st_read("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/out/ash_canopies.shp"), 32618)
 
 #histogram of ndvi value distribution for 0707b in removal
 rm0707b <- extract(ndvi0707b, removalPoly)[[1]]
