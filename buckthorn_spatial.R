@@ -192,6 +192,26 @@ sensort <- read.csv("K:/Environmental_Studies/hkropp/Data/campus/buckthorn/sapfl
 sensorc <- st_as_sf(sensort, coords = c("Longitude", "Latitude"), 
                     crs = 4326)
 
+
+
+m0719b <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_19_21_buckthorn_p2/07_19_21_buckthorn_p2_transparent_reflectance_blue.tif",
+                 "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_19_21_buckthorn_p2/07_19_21_buckthorn_p2_transparent_reflectance_green.tif",
+                 "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_19_21_buckthorn_p2/07_19_21_buckthorn_p2_transparent_reflectance_red.tif",
+                 "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_19_21_buckthorn_p2/07_19_21_buckthorn_p2_transparent_reflectance_red edge.tif",
+                 "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_19_21_buckthorn_p2/07_19_21_buckthorn_p2_transparent_reflectance_nir.tif")
+
+#plotRGB(m0715rg, r = 3, g = 2, b = 1, scale = 0.5, stretch = "lin")
+ndvi0719b <- (m0719b[[5]] - m0719b[[3]]) / (m0719b[[5]] + m0719b[[3]])
+#plot(ndvi0715rg)
+
+
+#adding gps coordinates to maps
+#read data for longitude and latitude
+sensort <- read.csv("K:/Environmental_Studies/hkropp/Data/campus/buckthorn/sapflux/sapfluxinfo070921.csv")
+sensorc <- st_as_sf(sensort, coords = c("Longitude", "Latitude"), 
+                    crs = 4326)
+
+
 #plots points without map
 plot(sensorc$geometry)
 
@@ -307,6 +327,10 @@ ctr0707b <- extract(ndvi0707b, controlPoly)[[1]]
 #mean ndvi value for control and removal in 0707b
 mean(rm0707b)
 mean(ctr0707b)
+
+#resampling where 0719 is the base map
+ndvi0719bR <- resample(ndvi0618b2, ndvi0719b)
+plot(ndvi0719b - ndvi0719bR)
 
 #resampling where 0707b is the base map
 ndvi0701b2R <- resample(ndvi0701b2, ndvi0707b)
