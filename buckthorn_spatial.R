@@ -3,6 +3,46 @@ library(sf)
 library(raster)
 library(tmap)
 library(rgdal)
+library(ggplot2)
+
+
+#extent for tmaps
+extentB <- extent(466520, 466610, 4767390, 4767480)
+m0503bRGB <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/05_03_21_buckthorn/odm_orthophotoRGB.tif")
+plotRGB(m0503bRGB, r = 3, g = 2, b = 1)
+tm_shape(m0503bRGB, bbox = extentB, unit = "m")+
+  tm_rgb(r = 3, g = 2, b = 1)+
+  tm_layout(title = "05/03/21", legend.outside = TRUE)+
+  tm_compass(type= "arrow", size= 4, position = c("left", "bottom"), text.color = "white")+
+  tm_scale_bar(breaks = c(0, 10, 20), text.size = 1, text.color = "white", 
+               position = c("right", "bottom"))+
+  tm_shape(removalPoly)+
+  tm_fill(alpha = 0, id = "Removal")+
+  tm_borders(col = "red",
+             lwd = 2,
+             lty = "solid",
+             alpha = NA,
+             zindex = NA,
+             group = NA)+
+  tm_shape(controlPoly)+
+  tm_fill(alpha = 0, title = "Treatment", id = "Control")+
+  tm_borders(col = "blue",
+             lwd = 2,
+             lty = "solid",
+             alpha = NA,
+             zindex = NA,
+             group = NA)+
+  tm_add_legend(type = "symbol",
+                labels = c("Removal", "Control"),
+                col = c("red", "blue"),
+                shape = NULL,
+                border.col = "black",
+                border.lwd = 1,
+                border.alpha = NA,
+                title = "Treatment",
+                is.portrait = TRUE)
+
+
 
 m0503bRGB <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/05_03_21_buckthorn/odm_orthophotoRGB.tif")
 plotRGB(m0503bRGB, r = 3, g = 2, b = 1)
@@ -54,6 +94,41 @@ m0610b <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/06
 ndvi0610b <- (m0610b[[5]] - m0610b[[3]]) / (m0610b[[5]] + m0610b[[3]])
 #plot(ndvi0610b)
 
+m0618b1RGB <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/06_18_21_buckthorn_p1/rgb/06_18_21_buckthorn_p1_unmerged_rgb_transparent_reflectance_group1.tif")
+
+tm_shape(m0618b1RGB, bbox = extentB, unit = "m")+
+  tm_rgb(r = 1, g = 2, b = 3)+
+  tm_layout(title = "06/18/21", title.color = "black", 
+            legend.outside = TRUE)+
+  tm_compass(type= "arrow", size= 4, position = c("left", "bottom"), 
+             text.color = "white")+
+  tm_scale_bar(breaks = c(0, 10, 20), text.size = 1, text.color = "white", 
+               position = c("right", "bottom"))+
+  tm_shape(removalPoly)+
+  tm_fill(alpha = 0, id = "Removal")+
+  tm_borders(col = "red",
+             lwd = 2,
+             lty = "solid",
+             alpha = NA,
+             zindex = NA,
+             group = NA)+
+  tm_shape(controlPoly)+
+  tm_fill(alpha = 0, title = "Treatment", id = "Control")+
+  tm_borders(col = "blue",
+             lwd = 2,
+             lty = "solid",  
+             alpha = NA,
+             zindex = NA,
+             group = NA)+
+  tm_add_legend(type = "symbol",
+                labels = c("Removal", "Control"),
+                col = c("red", "blue"),
+                shape = NULL,
+                border.col = "black",
+                border.lwd = 1,
+                border.alpha = NA,
+                title = "Treatment",
+                is.portrait = TRUE)
 
 
 m0618b1 <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/06_18_21_buckthorn_p1/06_18_21_buckthorn_p1_rerun_transparent_reflectance_blue.tif",
@@ -66,6 +141,14 @@ m0618b1 <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/0
 ndvi0618b1 <- (m0618b1[[5]] - m0618b1[[3]]) / (m0618b1[[5]] + m0618b1[[3]])
 #plot(ndvi0618b1)
 
+
+tm_shape(ndvi0618b1, bbox = extentB, unit = "m")+
+  tm_raster(palette= "BrBG", style = "fisher", n= 10, midpoint = NA, title = "NDVI")+
+  tm_layout(title = "06/18/21", legend.outside = TRUE)+
+  tm_compass(type= "arrow", size= 4, position = c("left", "bottom"))+
+  tm_scale_bar(breaks = c(0, 10, 20), text.size = 1, position = c("right", "bottom"))
+
+
 m0618b2 <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/06_18_21_buckthorn_p2/06_18_21_buckthorn_p2_rerun_transparent_reflectance_blue.tif",
                  "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/06_18_21_buckthorn_p2/06_18_21_buckthorn_p2_rerun_transparent_reflectance_green.tif",
                  "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/06_18_21_buckthorn_p2/06_18_21_buckthorn_p2_rerun_transparent_reflectance_red.tif",
@@ -76,6 +159,12 @@ m0618b2 <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/0
 ndvi0618b2 <- (m0618b2[[5]] - m0618b2[[3]]) / (m0618b2[[5]] + m0618b2[[3]])
 #plot(ndvi0618b2)
 
+#not great quality so use part 1
+tm_shape(m0618b2RGB, bbox = extentB, unit = "m")+
+  tm_rgb(r = 1, g = 2, b = 3, max.value = 120000)+
+  tm_layout(title = "06/18/21", title.color = "white")+
+  tm_compass(type= "arrow", size= 4, position = c("left", "bottom"), text.color = "white")+
+  tm_scale_bar(breaks = c(0, 10, 20), text.size = 1, text.color = "white", position = c("right", "bottom"))
 
 
 
@@ -87,6 +176,28 @@ m0625b1 <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/0
 #plotRGB(m0625b1, r = 3, g = 2, b = 1, scale = 0.5, stretch = "lin")
 ndvi0625b1 <- (m0625b1[[5]] - m0625b1[[3]]) / (m0625b1[[5]] + m0625b1[[3]])
 #plot(ndvi0625b1)
+
+m0625b1RGB <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/P4M/flight_6_25_21_buckthorn_p1/ortho/06_25_21_buckthorn_p1_rgb/4_index/reflectance/06_25_21_buckthorn_p1_rgb_transparent_reflectance_group1.tif")
+plotRGB(m0625b1RGB, r= 1, g= 2, b= 3, scale =0.5, stretch = "lin")
+#rgb tmap
+tm_shape(m0625b1RGB, bbox = extentB, unit = "m")+
+  tm_rgb(r = 1, g = 2, b = 3, max.value = 0.38)+
+  tm_layout(title = "06/25/21", title.color = "white")+
+  tm_compass(type= "arrow", size= 4, position = c("left", "bottom"), text.color = "white")+
+  tm_scale_bar(breaks = c(0, 10, 20), text.size = 1, text.color = "white", position = c("right", "bottom"))
+#rgb multi tmap
+tm_shape(m0625b1, bbox = extentB, unit = "m")+
+  tm_rgb(r = 3, g = 2, b = 1, max.value = 0.514)+
+  tm_layout(title = "06/25/21", title.color = "white")+
+  tm_compass(type= "arrow", size= 4, position = c("left", "bottom"), text.color = "white")+
+  tm_scale_bar(breaks = c(0, 10, 20), text.size = 1, text.color = "white", position = c("right", "bottom"))
+#ndvi tmap
+tm_shape(ndvi0625b1, bbox = extentB, unit = "m")+
+  tm_raster(palette= "BrBG", style = "fisher", n= 10, midpoint = NA, title = "NDVI")+
+  tm_layout(title = "06/25/21", legend.outside = TRUE)+
+  tm_compass(type= "arrow", size= 4, position = c("left", "bottom"))+
+  tm_scale_bar(breaks = c(0, 10, 20), text.size = 1, position = c("right", "bottom"))
+
 
 
 m0625b2 <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/06_25_21_buckthorn_p2/6_25_21_buckthorn_part2_transparent_reflectance_blue.tif",
@@ -117,8 +228,49 @@ m0701b1 <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/0
                  "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_01_21_buckthorn_p1/flight_07_01_21_buckthorn_p1_transparent_reflectance_nir.tif")
 
 #plotRGB(m0701b1, r = 3, g = 2, b = 1, scale = 0.5, stretch = "lin")
+
+m0701b1RGB <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_01_21_buckthorn_p1/rgb/07_01_21_buckthorn_p1_rgb_transparent_reflectance_group1.tif")
+plotRGB(m0701b1RGB, r = 1, g = 2, b = 3, stretch = "lin")
+tm_shape(m0701b1RGB, bbox = extentB, unit = "m")+
+  tm_rgb(r = 1, g = 2, b = 3)+
+  tm_layout(title = "07/01/21", title.color = "black", legend.outside = TRUE)+
+  tm_compass(type= "arrow", size= 4, position = c("left", "bottom"), text.color = "white")+
+  tm_scale_bar(breaks = c(0, 10, 20), text.size = 1, text.color = "white", 
+               position = c("right", "bottom"))+
+  tm_shape(removalPoly)+
+  tm_fill(alpha = 0, id = "Removal")+
+  tm_borders(col = "red",
+             lwd = 2,
+             lty = "solid",
+             alpha = NA,
+             zindex = NA,
+             group = NA)+
+  tm_shape(controlPoly)+
+  tm_fill(alpha = 0, title = "Treatment", id = "Control")+
+  tm_borders(col = "blue",
+             lwd = 2,
+             lty = "solid",
+             alpha = NA,
+             zindex = NA,
+             group = NA)+
+  tm_add_legend(type = "symbol",
+                labels = c("Removal", "Control"),
+                col = c("red", "blue"),
+                shape = NULL,
+                border.col = "black",
+                border.lwd = 1,
+                border.alpha = NA,
+                title = "Treatment",
+                is.portrait = TRUE)
+
 ndvi0701b1 <- (m0701b1[[5]] - m0701b1[[3]]) / (m0701b1[[5]] + m0701b1[[3]])
 #plot(ndvi0701b1)
+
+tm_shape(ndvi0701b1, bbox = extentB, unit = "m")+
+  tm_raster(palette= "BrBG", style = "fisher", n= 10, midpoint = NA, title = "NDVI")+
+  tm_layout(title = "07/01/21", legend.outside = TRUE)+
+  tm_compass(type= "arrow", size= 4, position = c("left", "bottom"))+
+  tm_scale_bar(breaks = c(0, 10, 20), text.size = 1, position = c("right", "bottom"))
 
 
 m0701b2 <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_01_21_buckthorn_p2/07_01_21_buckthorn_p2_transparent_reflectance_blue.tif",
@@ -163,6 +315,10 @@ m0712b2 <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/0
 ndvi0712b2 <- (m0712b2[[5]] - m0712b2[[3]]) / (m0712b2[[5]] + m0712b2[[3]])
 #plot(ndvi0712b2)
 
+tm_shape(ndvi0712b2, bbox = extentB)+
+  tm_raster(palette= "BrBG", style = "fisher", n= 10)+
+  tm_layout(legend.outside= TRUE)
+
 
 m0715rb <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_15_21_rogers_buckthorn/07_15_21_rogers_buckthorn_transparent_reflectance_blue.tif",
                  "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_15_21_rogers_buckthorn/07_15_21_rogers_buckthorn_transparent_reflectance_green.tif",
@@ -204,6 +360,80 @@ m0719b <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07
 ndvi0719b <- (m0719b[[5]] - m0719b[[3]]) / (m0719b[[5]] + m0719b[[3]])
 #plot(ndvi0715rg)
 
+m0719bRGB <- stack("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/07_19_21_buckthorn_p2/rgb/07_19_21_buckthorn_p2_rgb_transparent_reflectance_group1.tif")
+#rgb from multi images
+tm_shape(m0719b, bbox = extentB, unit = "m")+
+  tm_rgb(r = 3, g = 2, b = 1, max.value = 0.5)+
+  tm_layout(title = "07/19/21", title.color = "black", legend.outside = TRUE)+
+  tm_compass(type= "arrow", size= 4, position = c("left", "bottom"), 
+             text.color = "white")+
+  tm_scale_bar(breaks = c(0, 10, 20), text.size = 1, text.color = "white", 
+               position = c("right", "bottom"))+
+  tm_shape(removalPoly)+
+  tm_fill(alpha = 0, id = "Removal")+
+  tm_borders(col = "red",
+             lwd = 2,
+             lty = "solid",
+             alpha = NA,
+             zindex = NA,
+             group = NA)+
+  tm_shape(controlPoly)+
+  tm_fill(alpha = 0, title = "Treatment", id = "Control")+
+  tm_borders(col = "blue",
+             lwd = 2,
+             lty = "solid",
+             alpha = NA,
+             zindex = NA,
+             group = NA)+
+  tm_add_legend(type = "symbol",
+                labels = c("Removal", "Control"),
+                col = c("red", "blue"),
+                shape = NULL,
+                border.col = "black",
+                border.lwd = 1,
+                border.alpha = NA,
+                title = "Treatment",
+                is.portrait = TRUE)
+#ndvi tmap
+tm_shape(ndvi0719b, bbox = extentB, unit = "m")+
+  tm_raster(palette= "BrBG", style = "fisher", n= 10, midpoint = NA, title = "NDVI")+
+  tm_layout(title = "07/19/21", legend.outside = TRUE)+
+  tm_compass(type= "arrow", size= 4, position = c("left", "bottom"))+
+  tm_scale_bar(breaks = c(0, 10, 20), text.size = 1, position = c("right", "bottom"))
+
+#rgb tmap
+tm_shape(m0719bRGB, bbox = extentB, unit = "m")+
+  tm_rgb(r = 1, g = 2, b = 3, max.value = 0.16)+
+  tm_layout(title = "07/19/21", title.color = "black", legend.outside = TRUE)+
+  tm_compass(type= "arrow", size= 4, position = c("left", "bottom"), text.color = "white")+
+  tm_scale_bar(breaks = c(0, 10, 20), text.size = 1, text.color = "white", 
+               position = c("right", "bottom"))+
+  tm_shape(removalPoly)+
+  tm_fill(alpha = 0, id = "Removal")+
+  tm_borders(col = "red",
+             lwd = 2,
+             lty = "solid",
+             alpha = NA,
+             zindex = NA,
+             group = NA)+
+  tm_shape(controlPoly)+
+  tm_fill(alpha = 0, title = "Treatment", id = "Control")+
+  tm_borders(col = "blue",
+             lwd = 2,
+             lty = "solid",
+             alpha = NA,
+             zindex = NA,
+             group = NA)+
+  tm_add_legend(type = "symbol",
+                labels = c("Removal", "Control"),
+                col = c("red", "blue"),
+                shape = NULL,
+                border.col = "black",
+                border.lwd = 1,
+                border.alpha = NA,
+                title = "Treatment",
+                is.portrait = TRUE)
+
 
 #adding gps coordinates to maps
 #read data for longitude and latitude
@@ -229,14 +459,14 @@ m0503RGBc <- crop(m0503bRGB, extentB)
 plotRGB(m0503RGBc, r = 3, g = 2, b = 1)
 plot(sensorInfo$geometry, add = TRUE, pch = 19)
 
-#comparison with old coords
-sensormeta <- read.csv("K:/Environmental_Studies/hkropp/Data/campus/buckthorn/sapflux/sensors_meta.csv")
+#now actually the new coords 7/29
+sensormeta <- read.csv("K:/Environmental_Studies/hkropp/GIS/GPS/cornersremoval.csv")
 sensorc2 <- st_as_sf(sensormeta, coords = c("Longitude", "Latitude"), 
                      crs = 4326)
 plot(sensorc2$geometry)
-sensorInfo2 <- st_transform(sensorc2, crs = 32618)
+sensorcornerR <- st_transform(sensorc2, crs = 32618)
 plot(ndvi0707b)
-plot(sensorInfo2$geometry, add = TRUE, pch = 19)
+plot(sensorcornerR$geometry, add = TRUE, pch = 19)
 #zoomed out view of plot
 extentB2 <- extent(466520, 466610, 4767390, 4767480)
 #zoomed in view of plot
@@ -245,18 +475,31 @@ extentS2 <- extent(466535, 466600, 4767390, 4767430)
 #extentB view of 0503RGB with tree coords
 m0503RGBc <- crop(m0503bRGB, extentB2)
 plotRGB(m0503RGBc, r = 3, g = 2, b = 1)
-plot(sensorInfo2$geometry, add = TRUE, pch = 19)
+plot(sensorcornerR$geometry, add = TRUE, pch = 19)
 
+sensormeta2 <- read.csv("K:/Environmental_Studies/hkropp/GIS/GPS/removal plot and tree coords.csv")
+sensorc2 <- st_as_sf(sensormeta2, coords = c("Longitude", "Latitude"), 
+                     crs = 4326)
+plot(sensorc2$geometry)
+sensorsapflux <- st_transform(sensorc2, crs = 32618)
+plot(ndvi0707b)
+plot(sensorsapflux$geometry, add = TRUE, pch = 19)
 
 #install.packages(c("mapview", "mapedit"))
 library(mapview)
 library(mapedit)
 
 
-#changes view of map so that the max number of pixels is 5000000
+#mapview for corners
 viewRGB(m0503RGBc, r = 3, g = 2, b = 1)+
-  mapview(sensorInfo2)
+  mapview(sensorcornerR)
 m0503RGBc@ncols*m0503RGBc@nrows
+
+#mapview for some sensors
+viewRGB(m0503RGBc, r = 3, g = 2, b = 1)+
+  mapview(sensorsapflux)
+m0503RGBc@ncols*m0503RGBc@nrows
+
 #made box for removal plot
 removalBox <- st_polygon(list(rbind(c(-75.410795, 43.058728), 
                                     c(-75.410668, 43.058772),
@@ -275,21 +518,19 @@ plotRGB(m0503RGBc, r = 3, g = 2, b = 1)
 plot(removalp$geometry, add = TRUE)
 
 #drew manually the bounds of removal plot because of inaccuracies for removal plot above
-#removalPoly <- drawFeatures(
+removalPoly <- drawFeatures(
 viewRGB(m0503RGBc, r = 3, g = 2, b = 1)+
-  mapview(removalBox)+
-  mapview(sensorInfo))
+  mapview(sensorcornerR))
 
+#st_write(removalPoly, "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/out/removalnew.shp")
 #st_write(removalPoly, "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/out/removal_bounds.shp")
 
-#controlPoly <- drawFeatures(
+controlPoly <- drawFeatures(
 viewRGB(m0503RGBc, r = 3, g = 2, b = 1)+
-  mapview(removalBox)+
-  mapview(sensorInfo)+
   mapview(removalPoly))
 
 #st_write(controlPoly, "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/out/control_bounds.shp")
-
+#st_write(controlPoly, "K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/out/controlnew.shp")
 
 #ashPoly <- drawFeatures(
   viewRGB(m0503RGBc, r = 3, g = 2, b = 1)+
@@ -311,11 +552,14 @@ viewRGB(m0503RGBc, r = 3, g = 2, b = 1)+
 
 
 #transformed removalPoly and controlPoly so that they are in wgs 84 utm zone 18N
-removalPoly <- st_transform(st_read("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/out/removal_bounds.shp"), 32618)
-controlPoly <- st_transform(st_read("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/out/control_bounds.shp"), 32618)
+removalPoly2 <- st_transform(st_read("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/out/removal_bounds.shp"), 32618)
+controlPoly2 <- st_transform(st_read("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/out/control_bounds.shp"), 32618)
 ashPoly <- st_transform(st_read("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/out/ash_canopies.shp"), 32618)
 maplePoly <- st_transform(st_read("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/out/ash_canopies.shp"), 32618)
 buckPoly <- st_transform(st_read("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/out/ash_canopies.shp"), 32618)
+
+removalPoly <- st_transform(st_read("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/out/removalnew.shp"), 32618)
+controlPoly <- st_transform(st_read("K:/Environmental_Studies/hkropp/GIS/drone/campus/mapping/P4M/out/controlnew.shp"), 32618)
 
 #histogram of ndvi value distribution for 0707b in removal
 rm0707b <- extract(ndvi0707b, removalPoly)[[1]]
